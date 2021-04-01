@@ -10,13 +10,17 @@
     ></script>
     <link rel="stylesheet" href="style.css" />
     <script src="main.js" defer></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <!-- Navbar -->
     <nav id="navbar">
       <div class="navbar__logo">
-        <i class="far fa-check-circle"></i>
-        <a href="#">Todo_list</a>
+        <a href="#"><i class="far fa-check-circle"></i> Todo_list</a>
       </div>
       <ul class="navbar__menu">
         <input type="text" />
@@ -29,28 +33,34 @@
 
     <!-- Aside -->
     <aside id="sheet">
-      <div class="sheet__container">
+      <ul class="sheet__items">
         <p class="sheet__title">목록</p>
-        <ul class="sheet__items">
-          <li class="sheet__item">전체</li>
-          <li class="sheet__item">
-            Todo List<button class="detail__delete">
-              <i class="fas fa-trash-alt"></i>
-            </button>
-          </li>
-          <li class="sheet__item">
-            살 거<button class="detail__delete">
-              <i class="fas fa-trash-alt"></i>
-            </button>
-          </li>
-          <li class="sheet__item">
-            etc<button class="detail__delete">
-              <i class="fas fa-trash-alt"></i>
-            </button>
-          </li>
-          <button class="sheet__item"><i class="fas fa-plus"></i></button>
-        </ul>
-      </div>
+        <li class="sheet__item"><a href="#">전체</a></li>
+        <li class="sheet__item">
+          <a href="#">Todo List</a
+          ><button class="sheet__delete">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </li>
+        <li class="sheet__item">
+          <a href="#">살 거</a
+          ><button class="sheet__delete">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </li>
+        <li class="sheet__item">
+          <a href="#">etc</a
+          ><button class="sheet__delete">
+            <i class="fas fa-trash-alt"></i>
+          </button>
+        </li>
+        <li class="sheet__item">
+          <input type="text" />
+          <button class="sheet__plus_item">
+            <i class="fas fa-plus"></i>
+          </button>
+        </li>
+      </ul>
     </aside>
 
     <!-- Main -->
@@ -63,13 +73,14 @@
           </button>
         </div>
         <ul class="main__menu">
-          <li class="main__menu__item">Sort by</li>
+          <li>Sort by</li>
           <li class="main__menu__item">Write</li>
           <li class="main__menu__item">Priority</li>
           <li class="main__menu__item">Name</li>
           <li class="main__menu__item">Due Date</li>
         </ul>
       </div>
+      <div class="item__divider"></div>
       <ul class="main__middle">
         <li class="main__middle__item">
           <ul class="todo">
