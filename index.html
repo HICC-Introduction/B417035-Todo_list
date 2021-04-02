@@ -22,33 +22,41 @@
       <div class="navbar__logo">
         <a href="#"><i class="far fa-check-circle"></i> Todo_list</a>
       </div>
-      <ul class="navbar__menu">
-        <input type="text" />
-        <button class="navbar__menu__item">
+      <div class="navbar__menu">
+        <div class="searchBar">
+          <input
+            onkeyup="filter()"
+            type="text"
+            id="value"
+            placeholder="Type to Searach"
+          />
           <i class="fas fa-search"></i>
-        </button>
+        </div>
+
         <button class="navbar__menu__item">작성</button>
-      </ul>
+      </div>
     </nav>
 
     <!-- Aside -->
     <aside id="sheet">
       <ul class="sheet__items">
         <p class="sheet__title">목록</p>
-        <li class="sheet__item"><a href="#">전체</a></li>
-        <li class="sheet__item">
+        <li class="sheet__item selected" data-filter="*">
+          <a href="#">전체</a>
+        </li>
+        <li class="sheet__item" data-filter="Todo List">
           <a href="#">Todo List</a
           ><button class="sheet__delete">
             <i class="fas fa-trash-alt"></i>
           </button>
         </li>
-        <li class="sheet__item">
+        <li class="sheet__item" data-filter="살 거">
           <a href="#">살 거</a
           ><button class="sheet__delete">
             <i class="fas fa-trash-alt"></i>
           </button>
         </li>
-        <li class="sheet__item">
+        <li class="sheet__item" data-filter="etc">
           <a href="#">etc</a
           ><button class="sheet__delete">
             <i class="fas fa-trash-alt"></i>
@@ -74,101 +82,41 @@
         </div>
         <ul class="main__menu">
           <li>Sort by</li>
-          <li class="main__menu__item">Write</li>
-          <li class="main__menu__item">Priority</li>
-          <li class="main__menu__item">Name</li>
-          <li class="main__menu__item">Due Date</li>
+          <!-- <li class="main__menu__item">Write</li> -->
+          <li class="main__menu__item" onclick="sortTable(0)">Title</li>
+          <li class="main__menu__item" onclick="sortTable(1)">Due Date</li>
+          <li class="main__menu__item" onclick="sortTable(2)">Priority</li>
         </ul>
       </div>
-      <div class="item__divider"></div>
-      <ul class="main__middle">
-        <li class="main__middle__item">
-          <ul class="todo">
-            <input type="checkbox" id="done" name="done" checked />
-            <label for="done" class="todo__title"
-              ><a href="#">프로그래밍 공부하기</a></label
-            >
-          </ul>
-          <div class="detail">
-            <div class="detail__duedate">2021.03.29</div>
-            <input class="detail__priority" list="priority" id="priorities" />
-            <datalist id="priority">
-              <option value="1"></option>
-              <option value="2"></option>
-              <option value="3"></option>
-              <option value="4"></option>
-              <option value="5"></option>
-              <option value="6"></option>
-              <option value="7"></option>
-              <option value="8"></option>
-              <option value="9"></option>
-            </datalist>
-            <button class="detail__edit">수정</button>
-            <button class="detail__delete">
-              <i class="fas fa-trash-alt"></i>
-            </button>
-          </div>
-        </li>
-        <li class="main__middle__item">
-          <ul class="todo">
-            <input type="checkbox" id="done" name="done" />
-            <label for="done" class="todo__title"
-              ><a href="#">산책하기</a></label
-            >
-          </ul>
-          <div class="detail">
-            <div class="detail__duedate">2021.04.01</div>
-            <input class="detail__priority" list="priority" id="priorities" />
-            <datalist id="priority">
-              <option value="1"></option>
-              <option value="2"></option>
-              <option value="3"></option>
-              <option value="4"></option>
-              <option value="5"></option>
-              <option value="6"></option>
-              <option value="7"></option>
-              <option value="8"></option>
-              <option value="9"></option>
-            </datalist>
-            <button class="detail__edit">수정</button>
-            <button class="detail__delete">
-              <i class="fas fa-trash-alt"></i>
-            </button>
-          </div>
-        </li>
-        <li class="main__middle__item">
-          <ul class="todo">
-            <input type="checkbox" id="done" name="done" />
-            <label for="done" class="todo__title"
-              ><a href="#">그림 그리기</a></label
-            >
-          </ul>
-          <div class="detail">
-            <div class="detail__duedate">2021.03.30</div>
-            <input class="detail__priority" list="priority" id="priorities" />
-            <datalist id="priority">
-              <option value="1"></option>
-              <option value="2"></option>
-              <option value="3"></option>
-              <option value="4"></option>
-              <option value="5"></option>
-              <option value="6"></option>
-              <option value="7"></option>
-              <option value="8"></option>
-              <option value="9"></option>
-            </datalist>
-            <button class="detail__edit">수정</button>
-            <button class="detail__delete">
-              <i class="fas fa-trash-alt"></i>
-            </button>
-          </div>
-        </li>
-      </ul>
+      <div class="item__divider" style="margin-bottom: 20px"></div>
+      <!-- <div class="item__criterion">
+        <div style="margin-left: 50px; font-size: 14px">Title</div>
+        <div class="detail" style="margin-right: 60px; font-size: 14px">
+          <div style="margin-right: 35px; font-size: 14px">Due Date</div>
+          <div>Priority</div>
+        </div>
+      </div> -->
+      <table class="main__middle" id="table" onchange="sortChecked()">
+        <tbody class="main__middle__body">
+          <tr>
+            <td class="main__middle__title" style="text-align: center">
+              Title
+            </td>
+            <td class="main__middle__duedate">Due Date</td>
+            <td class="main__middle__priority">Priority</td>
+            <td class="main__middle__btn"></td>
+          </tr>
+        </tbody>
+      </table>
     </section>
 
     <!-- Footer -->
     <footer id="footer">
-      <input type="text" class="footer__input" />
+      <input
+        type="text"
+        class="footer__input"
+        placeholder="Type to add an item simply"
+      />
       <button class="footer__button"><i class="fas fa-plus"></i></button>
     </footer>
   </body>

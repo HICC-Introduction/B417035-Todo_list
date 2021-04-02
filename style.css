@@ -61,6 +61,24 @@ input:focus {
   outline: none;
 }
 
+input[type="checkbox"] + label {
+  display: inline-block;
+  width: 27px;
+  height: 27px;
+  padding-left: 27px;
+  color: var(--color-dark-blue);
+  background: url("./img/check-off.png") no-repeat 0 0px / contain;
+  white-space: nowrap;
+}
+
+input[type="checkbox"]:checked + label {
+  background: url("./img/check-on.png") no-repeat 0 0px / contain;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
 #navbar {
   /* position: fixed; */
   height: 40px;
@@ -85,6 +103,7 @@ input:focus {
 
 .navbar__menu {
   margin-right: 30px;
+  display: flex;
 }
 
 .navbar__menu__item {
@@ -92,10 +111,19 @@ input:focus {
 }
 
 .navbar__menu input {
-  border-radius: 30px;
   height: 30px;
   width: 300px;
-  padding-left: 10px;
+  margin-left: 20px;
+}
+
+.searchBar {
+  background-color: white;
+  border-radius: 30px;
+  margin-right: 20px;
+}
+
+.fa-search {
+  margin-right: 10px;
 }
 
 .navbar__menu button {
@@ -184,23 +212,49 @@ input:focus {
   border-radius: 5px;
 }
 
+.item__criterion {
+  margin: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
 .main__middle {
   margin: 20px;
+  width: 100%;
 }
 
 .main__middle__item {
-  display: flex;
-  justify-content: space-between;
 }
 
 .main__middle__item a {
   color: black;
 }
 
-.detail {
-  display: flex;
-  justify-content: space-between;
-  width: 20%;
+.main__middle table {
+  width: 100%;
+}
+
+.main__middle__title {
+  width: 70%;
+}
+
+.main__middle__duedate {
+  width: 15%;
+  text-align: center;
+}
+
+.main__middle__priority {
+  width: 5%;
+  text-align: center;
+}
+
+.main__middle__btn {
+  width: 10%;
+  text-align: center;
+}
+
+.detail__edit {
+  margin-right: 5px;
 }
 
 #priorities {
@@ -227,9 +281,11 @@ input:focus {
 }
 
 .footer__input {
+  margin-left: 20px;
   width: 80%;
-  height: 90%;
+  height: 80%;
   border-radius: 15px;
+  padding-left: 20px;
 }
 
 .footer__button {
