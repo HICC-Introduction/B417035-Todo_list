@@ -1,4 +1,5 @@
 "use strict";
+
 const items = document.querySelector(".main__middle__body");
 const input = document.querySelector(".footer__input");
 const addBtn = document.querySelector(".footer__button");
@@ -41,11 +42,11 @@ function createItem(text) {
   link.setAttribute("class", "title");
   link.innerHTML = text;
 
-  const duedate = document.createElement("td");
-  duedate.setAttribute("class", "main__middle__duedate");
+  // const duedate = document.createElement("td");
+  // duedate.setAttribute("class", "main__middle__duedate");
 
-  const detail__duedate = document.createElement("span");
-  detail__duedate.innerHTML = "-";
+  // const detail__duedate = document.createElement("span");
+  // detail__duedate.innerHTML = "-";
 
   const priority = document.createElement("td");
   priority.setAttribute("class", "main__middle__priority");
@@ -64,11 +65,16 @@ function createItem(text) {
   btn.setAttribute("class", "main__middle__btn");
 
   const editBtn = document.createElement("button");
-  editBtn.setAttribute("class", "detail__edit");
+  editBtn.setAttribute("class", "detail__btn");
   editBtn.innerHTML = "수정";
+  editBtn.addEventListener("click", () => {
+    const newText = prompt("변경할 Todo의 새로운 이름을 입력해주세요");
+    if (!newText || newText === "" || newText === " ") return false;
+    link.innerText = newText;
+  });
 
   const deleteBtn = document.createElement("button");
-  deleteBtn.setAttribute("class", "detail__delete");
+  deleteBtn.setAttribute("class", "detail__btn");
   deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
   deleteBtn.addEventListener("click", () => {
     items.removeChild(itemRow);
@@ -81,13 +87,13 @@ function createItem(text) {
   item.appendChild(checkbox);
   item.appendChild(label);
 
-  duedate.appendChild(detail__duedate);
+  // duedate.appendChild(detail__duedate);
   priority.appendChild(detail__priority);
   btn.appendChild(editBtn);
   btn.appendChild(deleteBtn);
 
   itemRow.appendChild(item);
-  itemRow.appendChild(duedate);
+  // itemRow.appendChild(duedate);
   itemRow.appendChild(priority);
   itemRow.appendChild(btn);
 
@@ -134,14 +140,14 @@ function sortTable(n) {
   switching = true;
   dir = "asc";
 
-  if (n == 2) {
+  if (n == 1) {
     while (switching) {
       switching = false;
       rows = table.rows;
       for (i = 1; i < rows.length - 1; i++) {
         shouldSwitch = false;
-        x = rows[i].getElementsByTagName("td")[2];
-        y = rows[i + 1].getElementsByTagName("td")[2];
+        x = rows[i].getElementsByTagName("td")[1];
+        y = rows[i + 1].getElementsByTagName("td")[1];
 
         var xsel = x.querySelector(".priority");
         var ysel = y.querySelector(".priority");

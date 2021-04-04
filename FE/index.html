@@ -32,77 +32,29 @@
           />
           <i class="fas fa-search"></i>
         </div>
-
-        <button class="navbar__menu__item">작성</button>
       </div>
     </nav>
-
-    <!-- Aside -->
-    <aside id="sheet">
-      <ul class="sheet__items">
-        <p class="sheet__title">목록</p>
-        <li class="sheet__item selected" data-filter="*">
-          <a href="#">전체</a>
-        </li>
-        <li class="sheet__item" data-filter="Todo List">
-          <a href="#">Todo List</a
-          ><button class="sheet__delete">
-            <i class="fas fa-trash-alt"></i>
-          </button>
-        </li>
-        <li class="sheet__item" data-filter="살 거">
-          <a href="#">살 거</a
-          ><button class="sheet__delete">
-            <i class="fas fa-trash-alt"></i>
-          </button>
-        </li>
-        <li class="sheet__item" data-filter="etc">
-          <a href="#">etc</a
-          ><button class="sheet__delete">
-            <i class="fas fa-trash-alt"></i>
-          </button>
-        </li>
-        <li class="sheet__item">
-          <input type="text" />
-          <button class="sheet__plus_item">
-            <i class="fas fa-plus"></i>
-          </button>
-        </li>
-      </ul>
-    </aside>
 
     <!-- Main -->
     <section id="main">
       <div class="main__top">
         <div class="main__title">
           <h1>Todo List</h1>
-          <button class="main__title__edit">
-            <i class="fas fa-pencil-alt"></i>
-          </button>
         </div>
         <ul class="main__menu">
           <li>Sort by</li>
-          <!-- <li class="main__menu__item">Write</li> -->
           <li class="main__menu__item" onclick="sortTable(0)">Title</li>
-          <li class="main__menu__item" onclick="sortTable(1)">Due Date</li>
-          <li class="main__menu__item" onclick="sortTable(2)">Priority</li>
+          <li class="main__menu__item" onclick="sortTable(1)">Priority</li>
         </ul>
       </div>
       <div class="item__divider" style="margin-bottom: 20px"></div>
-      <!-- <div class="item__criterion">
-        <div style="margin-left: 50px; font-size: 14px">Title</div>
-        <div class="detail" style="margin-right: 60px; font-size: 14px">
-          <div style="margin-right: 35px; font-size: 14px">Due Date</div>
-          <div>Priority</div>
-        </div>
-      </div> -->
+
       <table class="main__middle" id="table" onchange="sortChecked()">
         <tbody class="main__middle__body">
           <tr>
             <td class="main__middle__title" style="text-align: center">
               Title
             </td>
-            <td class="main__middle__duedate">Due Date</td>
             <td class="main__middle__priority">Priority</td>
             <td class="main__middle__btn"></td>
           </tr>
@@ -115,7 +67,7 @@
       <input
         type="text"
         class="footer__input"
-        placeholder="Type to add an item simply"
+        placeholder="Type to add an item"
       />
       <button class="footer__button"><i class="fas fa-plus"></i></button>
     </footer>

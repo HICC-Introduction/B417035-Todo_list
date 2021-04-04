@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <%- include('../partials/head') %>
+  </head>
+  <body>
+    <%- include('../partials/nav') %>
+
+    <div class="contact">
+      <h1>Todo</h1>
+      <ul>
+        <% contacts.forEach(function(contact) { %>
+
+        <li>
+          <a style="color: black" href="/contacts/<%= contact._id %>"
+            ><%= contact.todo %></a
+          >
+          <!-- 1 -->
+        </li>
+        <% }) %>
+      </ul>
+    </div>
+  </body>
+</html>

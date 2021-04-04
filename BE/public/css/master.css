@@ -1,0 +1,175 @@
+:root {
+  /* color */
+  --color-white: #ffffff;
+  --color-light-white: #eeeeee;
+  --color-dark-white: #bdbdbd;
+  --color-dark-blue: #005cb2;
+  --color-blue: #1e88e5;
+  --color-light-blue: #6ab7ff;
+
+  /* Font size */
+  --font-large: 48px;
+  --font-medium: 36px;
+  --font-regular: 28px;
+  --font-small: 18px;
+  --font-micro: 14px;
+
+  /* Font weight */
+  --weight-bold: 700;
+  --weight-semi-bold: 600;
+  --weight-regular: 400;
+
+  /* Animation */
+  --animation-duration: 300ms;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  background-color: var(--color-light-blue);
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+h1 {
+  padding: 0;
+  font-size: var(--font-medium);
+  margin: 10px;
+}
+
+input {
+  border: 0px solid;
+}
+
+input:focus {
+  outline: none;
+}
+
+input[type="checkbox"] + label {
+  display: inline-block;
+  width: 27px;
+  height: 27px;
+  padding-left: 27px;
+  color: var(--color-dark-blue);
+  background: url("./img/check-off.png") no-repeat 0 0px / contain;
+  white-space: nowrap;
+}
+
+input[type="checkbox"]:checked + label {
+  background: url("./img/check-on.png") no-repeat 0 0px / contain;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+.navbar {
+  /* position: fixed; */
+  height: 40px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--color-dark-blue);
+  z-index: 1;
+  padding: 0 30px;
+}
+
+.navbar__logo {
+  color: var(--color-white);
+  font-size: var(--font-regular);
+  margin-left: 10px;
+}
+
+.navbar a {
+  color: white;
+}
+
+.contact {
+  width: 70%;
+  height: 100vh;
+  margin: auto;
+  margin-top: 0;
+  background-color: white;
+  padding: 20px 40px;
+}
+
+.contact__form__item input {
+  width: 100%;
+  border: 1px solid;
+}
+
+.contact__form__description {
+  /* height: 300px; */
+  white-space: pre;
+}
+
+.description {
+  width: 100%;
+}
+
+.submit {
+  background-color: var(--color-blue);
+  width: 60px;
+  height: 30px;
+  border-radius: 5px;
+  color: white;
+}
+
+.show__opt {
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.show__btn {
+  background-color: var(--color-blue);
+  color: white;
+  margin: 5px;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.show__del {
+  color: white;
+}
+
+.navbar__menu {
+  margin-right: 30px;
+  display: flex;
+}
+
+.navbar__menu__item {
+  margin-right: 10px;
+}
+
+.navbar__menu input {
+  height: 30px;
+  width: 300px;
+  margin-left: 20px;
+}
+
+#main {
+  /* margin-left: 0px; */
+  width: 70%;
+  height: 100vh;
+  padding: 20px 0px;
+  margin: auto;
+  background-color: white;
+}
