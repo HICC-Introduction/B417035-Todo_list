@@ -77,7 +77,11 @@ function createItem(text) {
   deleteBtn.setAttribute("class", "detail__btn");
   deleteBtn.innerHTML = '<i class="fas fa-trash-alt"></i>';
   deleteBtn.addEventListener("click", () => {
-    items.removeChild(itemRow);
+    if (confirm("정말 삭제하시겠습니까?") == true) {
+      items.removeChild(itemRow);
+    } else {
+      return;
+    }
   });
 
   const itemDivider = document.createElement("div");

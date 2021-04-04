@@ -29,8 +29,7 @@ app.use(methodOverride("_method")); // 2
 
 // DB schema
 var contactSchema = mongoose.Schema({
-  name: { type: String, required: true, unique: true },
-  todo: { type: String },
+  todo: { type: String, required: true, unique: true },
   description: { type: String },
   // phone:{type:String}
 });

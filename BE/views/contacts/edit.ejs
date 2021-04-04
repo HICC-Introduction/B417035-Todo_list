@@ -11,11 +11,11 @@
       <form class="contact-form" action="/contacts/<%= contact._id %>?_method=put" method="post">
         <div class="contact__form__item">
           <p><label for="name">Todo</label></p>
-          <p><input type="text" id="todo" name="todo" value="<%= contact.todo %>"></p>
+          <p><input type="text" id="name" name="name" value="<%= contact.name %>"></p>
         </div>
         <div class="contact__form__item">
-          <p><label for="email">Description</label></p>
-          <p><input class="contact__form__description" type="textarea" id="description" name="description" value="<%= contact.description %>"></p>
+          <p><label for="todo">Description</label></p>
+          <p><input class="contact__form__description" type="textarea" id="todo" name="todo" value="<%= contact.todo %>"></p>
         </div>
         <!-- <div>
           <label for="phone">Phone</label>
